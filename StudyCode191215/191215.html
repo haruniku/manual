@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>問題1</title>
+  </head>
+  <body>
+    <p>「→」ボタンを押したら、左textboxの値を右textboxに入れる</p>
+    <input type="text" id="text1" value="左textbox" />
+    <button id="bt">→</button>
+    <input type="text" id="text2" value="右textbox" />
+  </body>
+  <script>
+    function onBtn() {
+      var text1 = document.getElementById("text1");
+      var text2 = document.getElementById("text2");
+      text2.value = text1.value;
+      console.log("クリックされました");
+    }
+
+    var bt = document.getElementById("bt");
+    bt.addEventListener("click", onBtn);
+  </script>
+</html>
