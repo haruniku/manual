@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery おみくじサイト</title>
+  </head>
+  <body>
+    <h1>jQuery おみくじサイト</h1>
+    <button type="button" id="js-omikuji">おみくじ</button>
+    <p id="js-output">ここに表示する</p>
+    <p id="js-text">乱数確認</p>
+    <p id="js-omikujiText"></p>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $(function() {
+        //処理
+        $("#js-output").text("大吉");
+
+        //ボタン取得
+        $("#js-omikuji").on("click", function() {
+          //console.log("OK");
+
+          // textメソッドに出力
+          var randomNum = Math.floor(Math.random() * 11);
+          $("#js-randomNum").text(randomNum);
+
+          if (randomNum <= 1) {
+            $("#js-output").text("大吉");
+            $("#js-omikujiText").text("おめでとう、よかったね！");
+            $("#js-text").text(randomNum);
+          } else if (randomNum <= 3) {
+            $("#js-output").text("中吉");
+            $("#js-omikujiText").text("");
+            $("#js-text").text(randomNum);
+          } else if (randomNum <= 6) {
+            $("#js-output").text("吉");
+            $("#js-omikujiText").text("");
+            $("#js-text").text(randomNum);
+          } else if (randomNum <= 8) {
+            $("#js-output").text("凶");
+            $("#js-omikujiText").text("");
+            $("#js-text").text(randomNum);
+          } else {
+            $("#js-output").text("大凶");
+            $("#js-omikujiText").text("");
+            $("#js-text").text(randomNum);
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
